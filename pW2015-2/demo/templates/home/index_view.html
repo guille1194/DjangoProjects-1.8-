@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Index {% endblock %}
+
+{% block content %}
+
+	<h1> Index con Django .. XD  </h1>
+{{ valor }}
+	<small>Mas content .. </small>
+
+	{% if user.is_authenticated %}
+		<h2>Bienvenido {{ user.username | capfirst }} </h2>
+		<img src="{{ get_image_profile }}" width="50px">
+		<small>	<a href="/logout/">Logout</a>	</small>
+	{% else %}
+		<form method="POST">
+		{% csrf_token %}
+
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<input type="submit" value="Login">
+			<small><a href="/signup/">SignUp</a></small>
+	</form>
+
+	{% endif %}
+
+	<a href="{% url 'social:begin' 'facebook' %}"> FaceBook Login</a>
+
+	<a href="{% url 'social:begin' 'twitter' %}"> Twitter Login</a>
+
+
+
+{% endblock %}

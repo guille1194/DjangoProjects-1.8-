@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} DetailReporte {% endblock %}
+
+{% block content %}
+	
+		<li>{{ object.employ_code }}</li>
+		<li>{{ object.employ_name }}</li>
+		<li>{{ object.employ_edad }}</li>
+		<li>{{ object.date }}</li>
+		<li><img src="/media/{{ object.employ_image }}"></li>
+	
+{% endblock %}

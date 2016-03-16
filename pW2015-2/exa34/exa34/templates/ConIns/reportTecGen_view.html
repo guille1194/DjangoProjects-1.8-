@@ -1,0 +1,41 @@
+{% extends "General/base.html" %}
+
+{% block cabezera %} RepTecGen - {% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+     <h2>Reporte de tecnicos general</h2>
+     <p>
+     	<div class="panel panel-primary">
+  		<table class="Tabla">
+        <thead>
+          <tr>
+            <th WIDTH=100>No. de contrato</th>
+            <th WIDTH=100>Matricula</th>
+            <th WIDTH=100>Nombre del tecnico</th>
+            <th WIDTH=100>Apellidos del tecnico</th>
+            <th WIDTH=100>Compañia</th>
+            <th WIDTH=100>Tipo de instalacion</th>
+            <th WIDTH=100>Ciudad</th>
+            <th WIDTH=100>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for data in datos %}
+          <tr>
+            <td>{{data.Contrato.NumCont}}</td>
+            <td>{{data.Usuario.Matricula}}</td>
+            <td>{{data.Usuario.Nombre}}</td>
+            <td>{{data.Usuario.Apellidos}}</td>
+            <td>{{data.Usuario.Empresa}}</td>
+            <td>{{data.Contrato.Ciudad}}</td>
+            <td>{{data.Contrato.Tipo_de_instalacion}}</td>
+            <td>{{data.Fecha}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+	</div>
+	</p>
+{% endblock %}

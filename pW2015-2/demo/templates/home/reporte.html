@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Reporte</title>
+</head>
+<body>
+	<h1>Reporte General</h1>
+		
+<ol>
+		{% for f in filter %}
+
+		
+			<li><label>
+			Nombre:
+		</label>
+			<a href="/detail_report/">{{ f.employ_name }}</a></li>
+			
+
+		{% endfor %}
+</ol>
+		{% if filter %}
+			<a href="/reporte/page/1"> << </a>
+			{% if filter.has_previous %}
+				<a href="/reporte/page/{{ filter.previous_page_number }}">Prev</a>
+			{% else %}
+				<a href="#">Prev</a>	
+			{% endif %}
+			{% if filter.has_next %}
+				<a href="/reporte/page/{{ filter.next_page_number }}">Next</a>
+			{% else %}
+				<a href="#">Next</a>
+			{% endif %}
+				<a href="/reporte/page/{{ filter.paginator.num_pages }}"> >> </a>
+				<br><br>
+			<h4>Page: {{ filter.number }} de {{ filter.paginator.num_pages }}</h4>
+		{% endif %}
+</body>
+</html>

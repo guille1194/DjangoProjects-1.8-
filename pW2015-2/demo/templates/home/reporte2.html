@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Reporte2 {% endblock %}
+
+{% block content %}
+	{% for item in object_list %}
+		<li>{{ item.employ_code }}</li>
+		<li>{{ item.employ_name }}</li>
+		<li>{{ item.employ_edad }}</li>
+		<li>{{ item.date }}</li>
+		<li>{{ item.employ_image }}</li>
+	{% endfor %}
+{% endblock %}

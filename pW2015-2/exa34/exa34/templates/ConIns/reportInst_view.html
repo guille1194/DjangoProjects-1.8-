@@ -1,0 +1,43 @@
+{% extends "General/base.html" %}
+
+{% block cabezera %} Reporte Instalacion - {% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+     <h2>Reporte de instalaciones</h2>
+     <p>
+     	<div class="panel panel-primary">
+  		<table class="Tabla">
+        <thead>
+          <tr>
+            <th WIDTH=100>Contrato</th>
+            <th WIDTH=100>Usuario</th>
+            <th WIDTH=100>Fecha</th>
+            <th WIDTH=100>Aprobacion</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for data in datos %}
+          <tr>
+            <td>{{data.Contrato}}</td>
+            <td>{{data.Usuario}}</td>
+            <td>{{data.Fecha}}</td>
+            <td>{{data.Aprobacion}}</td>
+            {% if data.Aprobacion = False %}
+            <td>
+                  <form method="POST" action="/repInst/">
+                    {% csrf_token %}
+                    <input type="text" name="contrato" value="{{data.id}}" hidden="True">
+                    <input type="submit" value="Aprobar pago">
+                  </form>
+            </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+	</div>
+	</p>
+{% endblock %}

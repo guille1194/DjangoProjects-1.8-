@@ -1,0 +1,33 @@
+{% extends "General/base.html" %}
+
+{% block cabezera %} Reporte Inventario - {% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+     <h2>Reporte de inventario</h2>
+     <p>
+     	<div class="panel panel-primary">
+  		<table class="Tabla">
+        <thead>
+          <tr>
+            <th WIDTH=100>Nombre</th>
+            <th WIDTH=100>Cantidad</th>
+            <th WIDTH=100>Marca</th>
+            <th WIDTH=100>Serial</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for data in datos %}
+          <tr>
+            <td>{{data.Nombre}}</td>
+            <td>{{data.Cantidad}}</td>
+            <td>{{data.Marca}}</td>
+            <td>{{data.Serial}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+	</div>
+	</p>
+{% endblock %}

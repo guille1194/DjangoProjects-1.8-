@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+	{% block title %} DAtos {% endblock %}
+
+{% block content %}
+	<h1>DAtos</h1>
+		<h2>{{mensaje}}</h2>
+	<form class="col-md-4 col-sm-offset-4" method = "POST" enctype = "multipart/form-data">
+			{% csrf_token %}
+	<!--
+	{{ form }}
+        <br>
+	  		<button type="submit" class="btn btn-primary">Guardar</button> 
+	  		<button type="submit" class="btn btn-warning">Limpiar</button>
+	 -->
+	 		{{ form.management_form }}
+	 		{% for f in form %}
+	 			{{ f.as_p }}
+	 		{% endfor %}
+
+	 		<br>
+	  		<button type="submit" class="btn btn-primary">Guardar</button> 
+	  		<button type="reset" class="btn btn-warning">Limpiar</button>
+
+	</form>
+	
+{% endblock %}
+
+</html>

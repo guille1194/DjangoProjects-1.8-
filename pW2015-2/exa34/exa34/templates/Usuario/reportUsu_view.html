@@ -1,0 +1,42 @@
+{% extends "General/base.html" %}
+
+{% block cabezera %} RepUsuarios - {% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+     <h2>Reporte de usuarios</h2>
+     <p>
+     	<div class="panel panel-primary">
+  		<table class="Tabla">
+        <thead>
+          <tr>
+            <th WIDTH=100>Matricula</th>
+            <th WIDTH=100>Nombre</th>
+            <th WIDTH=100>Apellidos</th>
+            <th WIDTH=100>Ciudad</th>
+            <th WIDTH=100>Telefono</th>
+            <th WIDTH=100>Correo</th>
+            <th WIDTH=100>Tipo de usuario</th>
+            <th WIDTH=100>Empresa</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for data in datos %}
+          <tr>
+            <td>{{data.Matricula}}</td>
+            <td>{{data.Nombre}}</td>
+            <td>{{data.Apellidos}}</td>
+            <td>{{data.Ciudad}}</td>
+            <td>{{data.Telefono}}</td>
+            <td>{{data.Correo}}</td>
+            <td>{{data.Tipo_de_usuario}}</td>
+            <td>{{data.Empresa}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+	</div>
+	</p>
+{% endblock %}

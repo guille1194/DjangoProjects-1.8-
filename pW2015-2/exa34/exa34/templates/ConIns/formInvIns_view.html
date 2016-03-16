@@ -1,0 +1,19 @@
+{% extends "General/base.html" %}
+
+{% block cabezera %} Inventario de instalacion - {% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+     <h2>Ingrese el inventario de la instalacion</h2>
+     <p>
+	<form method='POST' action=''>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<div class="form-actions">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+	{{ mensaje }}
+	</form>
+	</p>
+</div>
+{% endblock %}

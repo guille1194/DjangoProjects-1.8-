@@ -1,0 +1,76 @@
+{% load staticfiles %}
+{% load inclusion_tags %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <script src="/media/js/jquery-2.1.4.js"></script>
+    <script src="/media/js/jquery.form.min.js"></script>
+    
+    <script src="/{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+  
+  <script type="text/javascript">
+      $(document).on('ready', function(){
+        $.ajax({
+          type:"GET",
+          contentType:"application/json; charset=utf-8",
+          dateType:"json",
+          url:"/ws/personas/",
+          success:function(response){
+            var i = (response.length-1)-2;
+            for(i;i<=(response.length-1);i++){
+                $('#PersonasNuevas').append("<li>"+response[i].fields.employ_name+"</li>");
+            }
+          }
+        });
+      });
+    </script>
+
+	<title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+		<div class="row">
+      <div class="col-xs-12 col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Inicio</a></li>
+          <li role="presentation"><a href="/reporte_organizador">Organizadores</a></li>
+          <li role="presentation"><a href="/reporte_asistente">Asistentes</a></li>
+          <li role="presentation"><a href="/reporte_ponente">Ponentes</a></li>
+          <li role="presentation"><a href="/reporte_staff">Staff</a></li>
+          <li role="presentation"><a href="/horarios"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Horarios</a></a></li>
+          <li role="presentation"><a href="/conferencias/registro"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ConfRegistro</a></a></li>
+          <li role="presentation"><a href="/conferencias/reporte"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ConfReporte</a></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+		
+		<div class="page-header">
+			<h1>Herencia ... XD </h1>
+      <ul class="nav nav-list" id="PersonasNuevas">
+        <li class="nav-header">Nuevas Personas</li>
+      </ul>
+		</div>
+		
+    
+<h1>Inclusion tags</h1>
+  <h3>{% show_personas %}</h3>
+
+    
+	{% block content %} 
+  
+	{% endblock %}
+
+    
+    
+
+</body>
+</html>

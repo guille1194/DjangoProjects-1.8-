@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Buscar</title>
+</head>
+<body>
+	<h1>Buscar ...</h1>
+	<form method="POST" action="/editar/">
+		{% csrf_token %}
+		<label>Codigo: </label>
+		<input type="text" name="buscar">
+		<input type="submit" value="Consultar">
+		<br>
+
+	{{code}}
+
+		{{ mensaje }}
+	</form>
+</body>
+</html>

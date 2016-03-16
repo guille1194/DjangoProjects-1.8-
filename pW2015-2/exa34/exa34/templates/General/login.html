@@ -1,0 +1,19 @@
+{% extends "General/base.html" %}
+
+{% block cabezera %}  {% endblock %}
+
+{% block jumbotron %}
+
+<form method="POST">
+		{% csrf_token %}
+
+        <center>
+		<input type="text" placeholder="Usuario" name="username">
+		<br>
+		<input type="password" placeholder="Password" name="password">
+		<br>
+		<input type="submit" value="login">
+			<small><a href="index/"></a></small>
+			</center>
+	</form>
+{% endblock %}
