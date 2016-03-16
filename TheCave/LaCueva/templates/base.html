@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+      <a class="navbar-brand" href="/"> <span class="glyphicon glyphicon-th-list " aria-hidden="true" aria-label="Left Align"></span> FaCoInv</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav nav-pills">
+        <li class="active"><a href="/inventarios/"><span class="glyphicon glyphicon-list" aria-hidden="true" aria-label="Left Align"></span>  Inventarios</a></li>
+        <li class="active"><a href="/ventas/"><span class="glyphicon glyphicon-usd" aria-hidden="true" aria-label="Left Align"></span>  Ventas</a></li>
+        <li class="active"><a href="/populares/"><span class="glyphicon glyphicon-heart" aria-hidden="true" aria-label="Left Align"></span>  Populares</a></li>
+        <li class="active"><a href="/reporte_ventas_periodo/"><span class="glyphicon glyphicon-stats" aria-hidden="true" aria-label="Left Align"></span> <span class="glyphicon glyphicon-usd" aria-hidden="true" aria-label="Left Align"></span> Reporte Ventas por Periodo</a></li>
+        <li class="active"><a href="/reporte_ventas_dia/"><span class="glyphicon glyphicon-stats" aria-hidden="true" aria-label="Left Align"></span> <span class="glyphicon glyphicon-usd" aria-hidden="true" aria-label="Left Align"></span> Reporte Ventas por Dia</a></li>
+		{% if user.is_authenticated %}
+    		<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">{{user.username}} <span class="glyphicon glyphicon-user" aria-hidden="true" aria-label="Left Align"></span> </a>
+			<a href="/cerrar/">Salir</a>
+    		</p>
+    	{% else %}
+    		<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">None</a></p>
+    	{% endif %}
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+</nav>
+
+</head>
+<body>
+	
+	<header>
+		<div class="jumbotron">
+  			<div class="container">
+    			<center><h1><span class="glyphicon glyphicon-inbox" aria-hidden="true" aria-label="Left Align"></span> Arsenal Box</h1></center>
+          <h3 align="RIGHT"><i>Inventory</i></h3>
+  			</div>
+		</div>
+	</header>
+
+	{% block content %}
+	{% endblock %}
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+</body>
+</html>

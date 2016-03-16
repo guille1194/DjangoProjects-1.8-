@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %} Inventarios {% endblock %}
+{% block content %}
+	<h1>Inventarios</h1>
+
+	<p>
+	{% if status %}
+		<div class="alert alert-success" role="alert">Guardado...</div>
+	
+	{% endif %}
+	</p>
+
+	<form method="POST" class="col-md-12 col-sm-offset-0" style="margin-top: 5%;">
+	{% csrf_token %}
+	  
+	<div class="form-group">
+		<label for="CodigoProducto: ">Codigo Producto:</label> 
+		<input type="number" class="form-control" id="codigo" name="codigo" placeholder="Codigo Producto"> 
+	</div>
+
+	<div class="form-group">
+		<label for="NombreProducto: ">Nombre Producto:</label> 
+		<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto"> 
+	</div>
+
+	<div class="form-group">
+		<label for="CantidadProducto: ">Cantidad Producto:</label> 
+		<input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad Producto"> 
+	</div>
+
+	<div class="form-group">
+		<label for="CostoCompra: ">Costo Compra:</label> 
+		<input type="number" class="form-control" id="costo_compra" name="costo_compra" placeholder="Costo Compra Producto"> 
+	</div>
+
+	<div class="form-group">
+		<label for="CostoVenta: ">Costo Venta:</label> 
+		<input type="number" class="form-control" id="costo_venta" name="costo_venta" placeholder="Costo Venta Producto"> 
+	</div>
+
+	<div class="form-group">
+		<label for="Stock: ">Stock:</label> 
+		<input type="number" class="form-control" id="stock" name="stock" placeholder="Minimal Stock"> 
+	</div>
+
+	 <button type="submit" class="btn btn-primary btn-lg btn-block">
+	 	<span class="glyphicon glyphicon-floppy-saved" aria-hidden="true" aria-label="Left Align"></span> Guardar</button> 
+	 <button type="reset" class="btn btn-warning btn-lg btn-block">
+	 	<span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="Left Align"></span> Cancelar</button> 
+
+	</form>
+	
+
+{% endblock %}

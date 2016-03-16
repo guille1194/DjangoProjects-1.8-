@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Agregar Materia {% endblock %}
+
+{% block content %}
+	<div class="row">
+		<form class="col-sm-4 col-sm-offset-4" role="form" action="" method="POST">
+			{% csrf_token %}
+			<div class="form-group {% if form.errors.name %} has-error {% endif %}">
+				<label for="name">Nombre de la materia</label>
+				{{ form.name }}
+			</div>
+			<div class="form-group {% if form.errors.content %} has-error {% endif %}">
+				<label for="content">Descripcion</label>
+				{{ form.content }}
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">Agregar</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

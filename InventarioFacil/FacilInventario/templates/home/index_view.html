@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FaCoIn</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+  </head>
+  {% block content %}
+  <body>
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Inicio</a></li>
+          <li role="presentation"><a href="/items/reporte">Inventarios</a></li>
+          <li role="presentation"><a href="/reporte_asistente">Choferes</a></li>
+          <li role="presentation"><a href="/reporte_ponente">Distribucion</a></li>
+          <li role="presentation"><a href="/reporte_staff">Rutas</a></li>
+          <li role="presentation"><a href="/horarios"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Reportes</a></a></li>
+          <li role="presentation"><a href="/contact"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Contact</a></a></li>
+          <li role="presentation"><a href="/goals"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Goals</a></a></li>
+          <li role="presentation"><a href="/about"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> About</a></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <form class="col-md-4 col-sm-offset-4" style="margin-top: 5%;">
+      <div class="form-group">
+
+          <span class="label label-success">Inventarios</span>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <a class="btn btn-default" href="/items/registro" role="button">Registrar</a>
+            </div>
+            <div class="btn-group" role="group">
+              <a class="btn btn-primary" href="/items/reporte" role="button">Consultar</a>
+            </div>
+          </div>
+
+          <span class="label label-success">Choferes</span>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <a class="btn btn-default" href="/registrar_asistente" role="button">Registrar</a>
+            </div>
+            <div class="btn-group" role="group">
+              <a class="btn btn-primary" href="/reporte_asistente" role="button">Consultar</a>
+            </div>
+          </div>
+
+          <span class="label label-success">Distribucion</span>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <a class="btn btn-default" href="/registrar_ponente" role="button">Registrar</a>
+            </div>
+            <div class="btn-group" role="group">
+              <a class="btn btn-primary" href="/reporte_ponente" role="button">Consultar</a>
+            </div>
+          </div>
+
+          <span class="label label-success">Reportes</span>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <a class="btn btn-primary" href="/reporte_staff" role="button">Consultar</a>
+            </div>
+          </div>
+
+
+      </div>
+    </form>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap/static/js/bootstrap.min.js' %}"></script>
+  </body>
+  {% endblock %}
+</html>

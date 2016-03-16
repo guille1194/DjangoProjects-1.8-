@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>datos</title>
+</head>
+<body>
+	<h1>Test Send data</h1>
+
+	<form method="POST">
+		{% csrf_token %}
+			<input type="text" name="item">
+			<input type="number" name="cantidad">
+			<input type="date" name="dia">
+			<input type="text" name="chofer">
+			<input type="submit" value="Enviar">
+
+	</form>
+
+	<h2>{{ item }}</h2>
+	<h3>{{ cantidad }}</h3>
+	<h3>{{ dia }}</h3>
+	<h3>{{ chofer }}</h3>
+
+</body>
+</html>
