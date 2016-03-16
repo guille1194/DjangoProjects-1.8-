@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Perfiles {% endblock %}
+{% block content %}
+	<table class="table table-striped">
+		<th>User Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+	{% for item in object_list %}
+		<tr>
+			<td>{{ item.user_perfil }}</td>
+			<td>{{ item.mail }}</td>
+			<td>{{ item.phone }}</td>
+		</tr>	
+	{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}ReportProfessor{% endblock %}
+{% block content %}
+	<table class="table table-striped">
+			<tr>
+				<th>Professor Name</th>
+				<th>Professor ClassRoom</th>
+				<th>Professor Students</th>
+			</tr>
+		{% for item in object_list %}
+			<tr>
+				<td>{{ item.professor_name }}</td>
+				<td>{{ item.class_room }}</td>
+
+					<td>{% for p in item.students.all %}
+						{{ p.student_name }}
+						{{ p.student_semester }}
+					{% endfor %}</td>
+				
+				
+			</tr>
+			
+		{% endfor %}
+	</table>
+{% endblock %}

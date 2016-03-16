@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} StudentsReport {% endblock %}
+
+{% block content %}
+	
+
+<table class="table table-striped">
+<tr>
+				<th>Student Code</th>
+				<th>Student Name</th>
+				<th>Student Age</th>
+				<th>Student semester</th>
+				<th>Student Career</th>
+				<th>Student Image</th>
+			</tr>
+		{% for item in object_list %}
+			<tr>
+				<td>{{ item.student_code }}</td>
+				<td>{{ item.student_name }}</td>
+				<td>{{ item.student_age }}</td>
+				<td>{{ item.student_semester }}</td>
+				<td>{{ item.student_career }}</td>
+				<td><img src="{{MEDIA_URL}}{{item.student_image}}" alt=""/>{{ MEDIA_URL }}{{ item.student_image}}</td>
+			</tr>
+			
+		{% endfor %}
+</table>
+	
+	 
+
+{% endblock %}

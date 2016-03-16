@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Instalaciones{% endblock %}
+
+{% block content %}
+
+<center><h1>Instalacion</h1></center>	
+
+	<p>
+	{% if status %}
+		<div class="alert alert-success" role="alert">Guardado...</div>
+	{% else %}	
+		<div class="alert alert-warning" role="alert">Sin Datos...</div>
+	{% endif %}
+	</p>
+	
+	<div>
+		<form method="POST" class="col-md-12 col-sm-offset-0" style="margin-top: 5%;">
+		{% csrf_token %}
+			{{ form }}
+		<button type="submit" class="btn btn-primary btn-lg btn-block">Registrar</button> 
+	  	<button type="reset" class="btn btn-warning btn-lg btn-block">Cancelar</button> 
+				
+	</form>
+	</div>
+
+{% endblock %}
+

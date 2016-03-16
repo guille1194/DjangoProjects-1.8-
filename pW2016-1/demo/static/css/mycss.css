@@ -1,0 +1,22 @@
+.navbar-inverse {
+  background-color: #34F49D;
+  border-color: #88F285;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #303030;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: #303030;
+  background-color: #8AF7A0;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #303030;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  color: #303030;
+  background-color: #8AF7A0;
+}

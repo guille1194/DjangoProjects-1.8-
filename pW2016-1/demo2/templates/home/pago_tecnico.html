@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} Pago_tecnico {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated  and user.is_superuser %}
+	<h1>Pago Tecnico</h1>
+	<form method="POST">
+	{% csrf_token %}
+	  <div class="form-group">
+	    <label for="NombreTecnico: ">Nombre Tecnico:</label> 
+	    <input type="text" class="form-control" id="tecnico" name="tecnico" placeholder="Tecnico"> 
+	  </div>
+	  <div class="form-group">
+	    <label for="Fecha_inicio">Fecha_inicio: </label> 
+	    <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" placeholder="Fecha_inicio"> 
+	  </div>
+	  <div class="form-group">
+	    <label for="Fecha_final" >Fecha_final: </label> 
+	    <input type="date" class="form-control" id="fecha_final" name="fecha_final" placeholder="Fecha_final"> 
+	  </div>
+	 
+	  <button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button> 
+	  <button type="reset" class="btn btn-warning btn-lg btn-block">Borrar</button> 
+	  <br>
+	  <br>
+	  <br>
+</form>
+
+
+	
+	<div class="table-responsive">
+  <table class="table">
+    <tr>
+				<th>Contrato</th>
+				<th>Cliente</th>
+				<th>Servicio</th>
+				<th>Pago</th>
+			</tr>
+		{% for item in r %}
+			<tr>
+				<td>{{ item.contrato }}</td>
+				<td>{{ item.cliente }}</td>
+				{% for p in item.tipo_servicio.all  %}
+					<td>{{ p.nombre }}</td>
+					<td>{{ p.pago }}</td>
+				{% endfor %}
+			</tr>	
+		{% endfor %}
+			<tr>
+				<td></td>
+				<td></td>
+				<td>Total: </td>
+				<td>{{ p_tecnico }}</td>
+			</tr>
+  </table>
+</div>	
+		
+{% else %}
+	No tienes permisos adecuados para esta vista...
+	<a href="/">Regresar</a>
+{% endif %}
+	
+{% endblock %}

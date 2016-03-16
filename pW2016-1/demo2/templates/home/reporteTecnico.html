@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}ReporteTecnico{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated  and user.is_superuser %}
+	<form method="POST">
+	{% csrf_token %}
+	  <div class="form-group">
+	    <label for="NombreTecnico: ">Nombre Tecnico:</label> 
+	    <input type="text" class="form-control" id="nombre_tecnico" name="nombre_tecnico" placeholder="Tecnico"> 
+	  </div>
+	  
+	 
+	  <button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button> 
+	  <button type="reset" class="btn btn-warning btn-lg btn-block">Borrar</button> 
+	  <br>
+	  <br>
+	  <br>
+</form>
+
+		<div class="table-responsive">
+  <table class="table">
+    <tr>
+				<th>Contrato</th>
+				<th>Cliente</th>
+				<th>Direccion</th>
+				<th>Servicio</th>
+				<th>Equipo</th>
+				<th>Cantidad</th>
+				<th>TV</th>
+				<th>Fecha</th>
+			</tr>
+		{% for t in tecnico  %}
+			<tr>
+				<td>{{ t.contrato }}</td>
+				<td>{{ t.cliente }}</td>
+				<td>{{ t.direccion }}</td>
+				<td>{% for tipo in t.tipo_servicio.all  %}
+					{{ tipo.nombre }}
+				{% endfor %}</td>
+				<td>{% for q in t.equipo_instalado.all  %}
+					{{ q }}
+				{% endfor %}</td>
+				<td>{{ t.cantidad_equipo }}</td>
+				<td>{{ t.cantidad_tv }}</td>
+				<td>{{ t.fecha_instalacion}}</td>
+			</tr>
+			
+		{% endfor %}
+			
+  </table>
+</div>	
+{% else %}
+No tienes permisos adecuados para esta vista...
+<a href="/">Regresar</a>
+{% endif %}	
+{% endblock %}

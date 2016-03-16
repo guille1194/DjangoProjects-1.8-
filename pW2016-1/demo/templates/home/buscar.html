@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Buscar{% endblock %}
+{% block content %}
+
+		<form action="" method="POST">
+			{% csrf_token %}
+			<input type="text" name="campo">
+			<input type="submit" name="find" id="find" value="Find">
+			<input type="reset" value="Cancel">
+		</form>
+
+		
+
+<div class="table-responsive">
+	  <table class="table">
+	    <tr>
+					<th>Student Code</th>
+					<th>Student Name</th>
+					
+				</tr>
+			{% for item in objects %}
+				<tr>
+					<td>{{ item.student_code }}</td>
+					<td>{{ item.student_name }}</td>
+				</tr>	
+			{% endfor %}
+				
+	  </table>
+	</div>	
+
+		<h3>{{ mensaje }}</h3>
+
+
+{% endblock %}
