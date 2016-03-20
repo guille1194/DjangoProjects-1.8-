@@ -104,6 +104,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static')
+
 
 from django.core.urlresolvers import reverse_lazy
 
